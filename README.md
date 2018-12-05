@@ -34,8 +34,9 @@ resides. This script is intended to be single click and dead simple to use.
 4. Configure a new VPN connection profile on your local device with the
    following settings
 	1. VPN type: L2TP over IPSec
-	2. VPN shared secret or PSK: PSK in 'config.json'
-	3. VPN username: username in 'config.json'
-	4. VPN password: password in 'config.json'
+	2. VPN server: IP address retrieved with `./vpn.sh ip`
+	3. VPN shared secret or PSK: PSK in 'config.json'
+	4. VPN username: username in 'config.json'
+	5. VPN password: password in 'config.json'
 5. Connect to VPN, and test connection by checking public IP of local device
    (via Google search query 'my ip')
