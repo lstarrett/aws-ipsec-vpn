@@ -1,0 +1,17 @@
+{
+    "aws_profile": "default",
+    "aws_region": "us-east-1",
+    "ipsec_username": "vpnuser",
+    "ipsec_password": "correcthorsebatterystaple",
+    "ipsec_psk": "ungeolockallthethings",
+    
+    "COMMENT": "========NO CHANGES NEEDED BELOW THIS LINE========",
+
+    "COMMENT2": "Source: https://cloud-images.ubuntu.com/locator/ec2/",
+    "COMMENT3": "To add AMIs for more regions, use hvm:ebs-ssd instance type for desired region",
+    "ubuntu_us_east_1": "ami-0f9cf087c1f27d9b1",
+    "ubuntu_eu_west_1": "ami-09f0b8b3e41191524",
+
+    "vpn_create_script_path": "ipsec-vpn-create.sh"
+
+}
