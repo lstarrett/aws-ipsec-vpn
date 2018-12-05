@@ -38,5 +38,8 @@ resides. This script is intended to be single click and dead simple to use.
 	3. VPN shared secret or PSK: PSK in 'config.json'
 	4. VPN username: username in 'config.json'
 	5. VPN password: password in 'config.json'
+	For configuration of the above steps on MacOS, see following guide. The
+	instructions. Configuration on other operating systems (including iOS and
+	Android) is similar. `https://www.softether.org/4-docs/2-howto/9.L2TPIPsec_Setup_Guide_for_SoftEther_VPN_Server/5.Mac_OS_X_L2TP_Client_Setup`
 5. Connect to VPN, and test connection by checking public IP of local device
    (via Google search query 'my ip')
