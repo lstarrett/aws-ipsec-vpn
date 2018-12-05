@@ -55,7 +55,6 @@ case "$1" in
                 --image-id $AMI \
                 --count 1 \
                 --instance-type t2.micro \
-                --key-name lucas \
                 --security-groups IPSECVPN \
                 --user-data file://temp \
                 --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=ipsecvpn}]' \
