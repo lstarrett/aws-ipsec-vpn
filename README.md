@@ -42,4 +42,9 @@ resides. This script is intended to be single click and dead simple to use.
 	   Configuration on other operating systems (including iOS and Android)
 	   is similar. https://www.softether.org/4-docs/2-howto/9.L2TPIPsec_Setup_Guide_for_SoftEther_VPN_Server/5.Mac_OS_X_L2TP_Client_Setup
 5. Connect to VPN, and test connection by checking public IP of local device
-   (via Google search query 'my ip')
+6. When you are done with the VPN, run `./vpn.sh stop` to shut down and
+   terminate the VPN instance. Nothing related to this tool will be left behind
+   in your AWS account, other than the Security Group you created. To start the
+   VPN again, start again from step (1). The configuration will remain the same,
+   but the IP address will change and your local client configuration will need
+   to be updated with the new VPN server address.
