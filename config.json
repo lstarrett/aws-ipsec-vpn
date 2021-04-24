@@ -10,6 +10,7 @@
     "COMMENT2": "Source: https://cloud-images.ubuntu.com/locator/ec2/",
     "COMMENT3": "To add AMIs for more regions, use hvm:ebs-ssd instance type for desired region",
     "ubuntu_us_east_1": "ami-0f9cf087c1f27d9b1",
+    "ubuntu_us_east_2": "ami-0b9bd0b532ebcf4c9",
     "ubuntu_eu_west_1": "ami-09f0b8b3e41191524",
 
     "vpn_create_script_path": "ipsec-vpn-create.sh"

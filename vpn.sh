@@ -39,11 +39,14 @@ case "$1" in
             us-east-1)
                 AMI=`echo $CONFIG | jq -r '.ubuntu_us_east_1'`
                 ;;
+            us-east-2)
+                AMI=`echo $CONFIG | jq -r '.ubuntu_us_east_2'`
+                ;;
             eu-west-1)
                 AMI=`echo $CONFIG | jq -r '.ubuntu_eu_west_1'`
                 ;;
             *)
-                echo "Unsupported region. Use 'us-east-1' or 'eu-west-1', or add support for more AMIs to the script. Exiting."
+                echo "Unsupported region. Use 'us-east-1', 'us-east-2', 'eu-west-1', or add support for more AMIs to the script. Exiting."
                 exit 1
                 ;;
         esac
@@ -51,6 +54,7 @@ case "$1" in
         # start the VPN instance and pass it the create script as userdata
         echo "Starting IPsec VPN on AWS EC2..."
         aws ec2 run-instances \
+                --profile $PROFILE \
                 --region $REGION \
                 --image-id $AMI \
                 --count 1 \
@@ -68,6 +72,7 @@ case "$1" in
     ip)
         echo "Retrieving AWS VPN Instance IP Address..."
         INSTANCE_IP=`aws ec2 describe-instances \
+                --profile $PROFILE \
                 --region $REGION \
                 --query 'Reservations[*].Instances[*].[PublicIpAddress]' \
                 --filters "Name=tag-value,Values=ipsecvpn" \
@@ -81,6 +86,7 @@ case "$1" in
         echo "Retrieving AWS VPN Instance Status..."
         INSTANCE_ID=`cat vpn-instance-config | jq -r '.Instances | .[] | .InstanceId'`
         aws ec2 describe-instance-status \
+                --profile $PROFILE \
                 --region $REGION \
                 --instance-id $INSTANCE_ID
         ;;
@@ -89,6 +95,7 @@ case "$1" in
         echo "Stopping and Terminating AWS VPN Instance..."
         INSTANCE_ID=`cat vpn-instance-config | jq -r '.Instances | .[] | .InstanceId'`
         aws ec2 terminate-instances \
+                --profile $PROFILE \
                 --region $REGION \
                 --instance-ids $INSTANCE_ID
 
