@@ -9,7 +9,6 @@
 # This script is intended to be single click, dead simple use.
 #
 
-# load config variables
 CONFIG=`cat config.json`
 
 VPN_CREATE_SCRIPT=`echo $CONFIG | jq -r '.vpn_create_script_path'`
@@ -45,8 +44,11 @@ case "$1" in
             eu-west-1)
                 AMI=`echo $CONFIG | jq -r '.ubuntu_eu_west_1'`
                 ;;
+            sa-east-1)
+                AMI=`echo $CONFIG | jq -r '.ubuntu_sa_east_1'`
+                ;;
             *)
-                echo "Unsupported region. Use 'us-east-1', 'us-east-2', 'eu-west-1', or add support for more AMIs to the script. Exiting."
+                echo "Unsupported region. Use 'us-east-1', 'us-east-2', 'eu-west-1', 'sa-east-1', or add support for more AMIs to the script. Exiting."
                 exit 1
                 ;;
         esac
@@ -58,7 +60,7 @@ case "$1" in
                 --region $REGION \
                 --image-id $AMI \
                 --count 1 \
-                --instance-type t2.micro \
+                --instance-type t3.nano \
                 --security-groups IPSECVPN \
                 --user-data file://temp \
                 --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=ipsecvpn}]' \
