@@ -7,7 +7,6 @@
 # resides.
 #
 # This script is intended to be single click, dead simple use.
-#
 
 CONFIG=`cat config.json`
 
